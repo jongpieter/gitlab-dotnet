@@ -15,7 +15,7 @@ RUN echo "deb http://download.mono-project.com/repo/ubuntu xenial main" > /etc/a
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EB3E94ADBE1229CF
 RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list \
 	&& apt-get update \
-	&& apt-get install -y dotnet-sdk-2.0.0 \
+	&& apt-get install -y dotnet-sdk-2.0.3 \
 	&& mkdir -p /opt/dotnet \
 	&& ln -s /opt/dotnet/dotnet /usr/local/bin
 	
