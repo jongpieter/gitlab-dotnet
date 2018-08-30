@@ -14,7 +14,8 @@ RUN echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" 
 # Install .NET Core
 RUN curl -Lsf "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > microsoft.asc.gpg \
 	&& mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/ \
-	&& curl -Lsfo /etc/apt/sources.list.d/microsoft-prod.list "https://packages.microsoft.com/config/ubuntu/18.04/prod.list" \
+	&& curl -LsfO "https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb" \
+	&& dpkg -i packages-microsoft-prod.deb \
 	&& apt-get update \
 	&& apt-get install -y dotnet-sdk-2.1 \
 	&& mkdir -p /opt/dotnet \
